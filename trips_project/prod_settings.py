@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-pb6id3qzxuvft3bsc@+#7w24$0t4dr5vx1e@1h6pbk#f-5x5@#
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['trips-backend-h3zo.onrender.com']
 
 
 # Application definition
