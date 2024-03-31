@@ -137,7 +137,6 @@ MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
 # Collect static files from the settings folder
 # "core" which is not "admin" and "application" folder
 # Set "media" folder
-DEFAULT_FILE_STORAGE = 'core.gcsUtils.Media'
 
 GS_BUCKET_NAME = 'trip-tracker-dev'
 

@@ -124,7 +124,7 @@ STATIC_ROOT = Path.joinpath(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
 
-DEFAULT_FILE_STORAGE = 'core.gcsUtils.Media'
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 
 GS_BUCKET_NAME = 'trip-tracker-prod'
 
