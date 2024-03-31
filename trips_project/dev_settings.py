@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from google.oauth2 import service_account
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -128,6 +130,27 @@ STATIC_URL = '/static/'
 STATIC_ROOT = Path.joinpath(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
+
+##########################################
+# "core/settings.py"
+
+# Collect static files from the settings folder
+# "core" which is not "admin" and "application" folder
+# Set "media" folder
+DEFAULT_FILE_STORAGE = 'core.gcsUtils.Media'
+
+GS_BUCKET_NAME = 'trip-tracker-dev'
+
+# Add an unique ID to a file name if same file name exists
+GS_FILE_OVERWRITE = False
+
+GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+    os.path.join(BASE_DIR, 'gcpCredentials.json'),
+)
+##############################################
+
+# Replace the default storage backend with Google Cloud Storage
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

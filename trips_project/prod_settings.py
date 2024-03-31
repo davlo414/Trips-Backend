@@ -123,6 +123,17 @@ STATIC_ROOT = Path.joinpath(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = Path.joinpath(BASE_DIR, 'media')
 
+DEFAULT_FILE_STORAGE = 'core.gcsUtils.Media'
+
+GS_BUCKET_NAME = 'trip-tracker-prod'
+
+# Add an unique ID to a file name if same file name exists
+GS_FILE_OVERWRITE = False
+
+GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+    os.path.join(BASE_DIR, 'gcpCredentials.json'),
+)
+
 if not DEBUG:
     # Tell Django to copy static assets into a path called `staticfiles` (this is specific to Render)
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
